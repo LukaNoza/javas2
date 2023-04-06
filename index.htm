@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Calculator</title>
+    <style>
+      #calculate-btn:hover {
+        background-color: red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Number Calculator</h1>
+    <label for="num1-input">Enter a number:</label>
+    <input type="number" id="num1-input" name="num1-input" required>
+    <br>
+    <label for="num2-input">Enter another number:</label>
+    <input type="number" id="num2-input" name="num2-input" required>
+    <br>
+    <button id="calculate-btn">Calculate</button>
+    <script>
+      const calculateBtn = document.getElementById("calculate-btn");
+      calculateBtn.addEventListener("mouseover", function() {
+        calculateBtn.style.backgroundColor = "red";
+        calculateBtn.style.color = "white";
+      });
+      calculateBtn.addEventListener("mouseout", function() {
+        calculateBtn.style.backgroundColor = "";
+        calculateBtn.style.color = "";
+      });
+      calculateBtn.addEventListener("click", function() {
+        const num1 = parseInt(document.getElementById("num1-input").value);
+        const num2 = parseInt(document.getElementById("num2-input").value);
+        if (!isNaN(num1) && !isNaN(num2)) {
+          const result = num1 + num2;
+          const resultHeading = document.createElement("h1");
+          resultHeading.innerHTML = `Result: ${result}`;
+          document.body.appendChild(resultHeading);
+        } else {
+          alert("Please enter valid numbers in both fields.");
+        }
+      });
+    </script>
+  </body>
+</html>
